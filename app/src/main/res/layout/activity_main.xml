@@ -18,14 +18,16 @@
         android:layout_marginTop="18dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="title"/>
+        android:hint="title"
+        android:text="00030716"/>
 
     <EditText
         android:id="@+id/et_body"
         android:lines="4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="body"/>
+        android:hint="body"
+        android:text="00030716"/>
 
     <Button
         android:id="@+id/btn_submit"

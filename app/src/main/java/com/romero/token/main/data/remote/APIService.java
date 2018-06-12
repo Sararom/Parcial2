@@ -6,6 +6,8 @@ import com.romero.token.main.data.model.Post;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import rx.Observable;
 
@@ -14,5 +16,10 @@ public interface APIService {
     @FormUrlEncoded
     Observable<Post> savePost(@Field("user") String user,
                               @Field("password") String pass);
+
+    @GET("/news")
+    Call<Post[]> get(
+            @Header("Authorization: ") String token
+    );
 }
 

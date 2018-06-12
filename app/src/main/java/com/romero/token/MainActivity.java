@@ -1,5 +1,6 @@
 package com.romero.token;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mResponseTv;
     private APIService mAPIService;
+    public String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +56,19 @@ public class MainActivity extends AppCompatActivity {
                 .subscribe(new Subscriber<Post>() {
                     @Override
                     public void onCompleted() {
-                        Log.d("LEL ",title);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("LELLLLL ",body);
+                        Log.d("SDW",body);
                         e.printStackTrace();
                     }
 
                     @Override
                     public void onNext(Post post) {
-                        showResponse(post.toString());
+                        //showResponse(post.toString());
+                        Log.d("token: ",post.getToken());
+                        initMain2(post.getToken());
                     }
                 });
 
@@ -76,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
             mResponseTv.setVisibility(View.VISIBLE);
         }
         mResponseTv.setText(response);
+    }
+
+    public void initMain2(String token){
+        Intent intent =new Intent(this, Main2.class);
+        intent.putExtra("TOKEN_ID",token);
+        startActivity(intent);
     }
 
 }
