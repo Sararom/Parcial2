@@ -1,17 +1,19 @@
 package com.romero.token;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 
 import com.romero.token.main.data.model.Post;
 import com.romero.token.main.data.remote.APIService;
 import com.romero.token.main.data.remote.ApiUtils;
+import com.romero.token.main.fragments.NewsAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,29 +22,27 @@ import retrofit2.Response;
 public class Main2 extends AppCompatActivity {
 
     private APIService mService;
-    private TextView mResponseTv;
+    //private TextView mResponseTv;
+
+    RecyclerView mRecyclerView;
+    RecyclerView.Adapter adapter;
+    Post[] aNews;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mResponseTv = (TextView) findViewById(R.id.testId);
-        setSupportActionBar(toolbar);
-
         String s = getIntent().getStringExtra("TOKEN_ID");
-
         mService = ApiUtils.getAPIService();
         loadAnswers(s);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        mRecyclerView = findViewById(R.id.recyclerV);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     public void loadAnswers(String s) {
@@ -51,13 +51,10 @@ public class Main2 extends AppCompatActivity {
                 public void onResponse(Call<Post[]> call, Response<Post[]> response) {
 
                     if(response.isSuccessful()) {
-                        Post[] news = response.body();
-                        //mResponseTv.setText(news[0].getTitle());
-
-                        for(int i=0;i<news.length;i++){
-                            mResponseTv.append(news[i].getTitle());
-                            mResponseTv.append("\n");
-                        }
+                        aNews = response.body();
+                        adapter =new NewsAdapter(aNews);
+                        mRecyclerView.setAdapter(adapter);
+                        //mResponseTv.setText(aNews[0].getTitle());
 
                         Log.d("MainActivity", "posts loaded from API");
                     }else {
@@ -76,11 +73,4 @@ public class Main2 extends AppCompatActivity {
                 }
             });
         }
-
-    public void showResponse(Post[] response) {
-        if(mResponseTv.getVisibility() == View.GONE) {
-            mResponseTv.setVisibility(View.VISIBLE);
-        }
-   }
-
 }

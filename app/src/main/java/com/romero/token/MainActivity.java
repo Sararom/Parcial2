@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
     public void initMain2(String token){
         Intent intent =new Intent(this, Main2.class);
         intent.putExtra("TOKEN_ID",token);
+        Log.d("SI OBTIENE TOKEN",token);
         startActivity(intent);
     }
 
