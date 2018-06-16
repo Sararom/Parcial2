@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.romero.token.main.data.model.Post;
+import com.romero.token.main.data.model.Token;
 import com.romero.token.main.data.remote.APIService;
 import com.romero.token.main.data.remote.ApiUtils;
 
@@ -67,18 +68,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onNext(Post post) {
                         //showResponse(post.toString());
+                        Token tokenBd = new Token(post.getToken());
+
                         Log.d("token: ",post.getToken());
-                        initMain2(post.getToken());
+                        initMain2(tokenBd.getToken());
                     }
                 });
 
-    }
-
-    public void showResponse(String response) {
-        if(mResponseTv.getVisibility() == View.GONE) {
-            mResponseTv.setVisibility(View.VISIBLE);
-        }
-        mResponseTv.setText(response);
     }
 
     public void initMain2(String token){
