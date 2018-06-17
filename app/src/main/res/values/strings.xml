@@ -3,4 +3,16 @@
     <string name="title_activity_main2">News</string>
     <string name="title_activity_full_new">FullNew</string>
     <string name="action_settings">Settings</string>
+    <string name="current_image">Current image</string>
+    <string name="title">Title</string>
+    <string name="cuerpo_de_noticia">Cuerpo de noticia</string>
+    <string name="welcome">Welcome</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="submit">SUBMIT</string>
+    <string name="image">Image</string>
+    <string name="body_test">Braum medio, sin farmear. Nueva composicion koreana</string>
+    <string name="type">Lol</string>
+    <string name="body">Braum medio, sin farmear. Nueva composicion koreana</string>
+    <string name="game">Lol</string>
 </resources>

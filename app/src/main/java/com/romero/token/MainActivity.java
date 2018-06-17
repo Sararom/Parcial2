@@ -2,6 +2,7 @@ package com.romero.token;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         final EditText titleEt = (EditText) findViewById(R.id.et_title);
         final EditText bodyEt = (EditText) findViewById(R.id.et_body);
         Button submitBtn = (Button) findViewById(R.id.btn_submit);
@@ -66,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("SDW",body);
-                        e.printStackTrace();
+                        Snackbar.make(findViewById(R.id.activity_post),"Username or Password incorrect, try again", Snackbar.LENGTH_LONG).show();
+
+                        //e.printStackTrace();
                     }
 
                     @Override

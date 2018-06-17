@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_post"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    android:background="#b6a4b7ce">
+    android:background="#eaebf5">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:fontFamily="@font/sun"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="Welcome"/>
+        android:text="@string/welcome"/>
     <EditText
         android:id="@+id/et_title"
         android:layout_marginTop="18dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="title"
-        android:text="00030716"/>
+        android:textSize="25sp"
+        android:hint="@string/user"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/et_body"
         android:lines="4"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="body"
-        android:text="00030716"/>
+        android:textSize="25sp"
+        android:hint="@string/password"
+        />
 
     <Button
         android:id="@+id/btn_submit"
@@ -42,7 +43,7 @@
         android:background="@color/colorAccent"
         android:textColor="@android:color/white"
         android:fontFamily="@font/sun"
-        android:text="SUBMIT"/>
+        android:text="@string/submit"/>
 
     <TextView
         android:id="@+id/tv_response"

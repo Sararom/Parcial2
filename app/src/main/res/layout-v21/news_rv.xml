@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="10dp"
-    android:layout_margin="5dp"
-    tools:targetApi="lollipop">
+    android:layout_margin="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,7 +24,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:background="#c9a7b75a"
-                />
+                android:contentDescription="@string/image" />
 
             <TextView
                 android:id="@+id/titleTv"
@@ -38,7 +36,7 @@
                 android:layout_margin="@dimen/fab_margin"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/sun"
-                android:text="@string/body"
+                android:text="@string/body_test"
                 android:textSize="25sp"
                 android:textAlignment="center"
                 />
@@ -49,7 +47,7 @@
                 android:layout_below="@id/titleTv"
                 android:textColor="#757575"
                 android:fontFamily="@font/sun"
-                android:text="@string/game"
+                android:text="@string/type"
                 style="@style/AppTheme"
                 android:textSize="20sp"
                 android:gravity="center"
