@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Token</string>
+    <string name="app_name">GameNews</string>
     <string name="title_activity_main2">News</string>
+    <string name="title_activity_full_new">FullNew</string>
     <string name="action_settings">Settings</string>
 </resources>

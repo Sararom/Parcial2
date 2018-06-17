@@ -5,14 +5,18 @@
     android:id="@+id/activity_post"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:background="#b6a4b7ce">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:fontFamily="@font/sun"
+        android:textSize="50dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="Enter Post"/>
+        android:text="Welcome"/>
     <EditText
         android:id="@+id/et_title"
         android:layout_marginTop="18dp"
@@ -24,6 +28,7 @@
     <EditText
         android:id="@+id/et_body"
         android:lines="4"
+        android:inputType="numberPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="body"
@@ -36,6 +41,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:textColor="@android:color/white"
+        android:fontFamily="@font/sun"
         android:text="SUBMIT"/>
 
     <TextView

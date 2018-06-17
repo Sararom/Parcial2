@@ -1,17 +1,30 @@
 package com.romero.token.main.data.model;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
-@Entity
-public class New {
+import java.io.Serializable;
+
+@Entity(tableName = "news_table")
+public class New implements Serializable{
+    @PrimaryKey
+    @NonNull
     private String id;
+    @ColumnInfo(name="title")
     private String title;
+    @ColumnInfo(name="body")
     private String body;
+    @ColumnInfo(name="game")
     private String game;
+    @ColumnInfo(name="image")
     private String coverImage;
+    @ColumnInfo(name="created_date")
     private String createdDate;
+    @ColumnInfo(name="v")
     private Integer v;
+    @ColumnInfo(name="description")
     private String description;
 
     public New() {

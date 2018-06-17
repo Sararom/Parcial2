@@ -1,5 +1,6 @@
 package com.romero.token;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView mResponseTv;
     private APIService mAPIService;
     public String token;
+    private static Context sContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         final EditText titleEt = (EditText) findViewById(R.id.et_title);
         final EditText bodyEt = (EditText) findViewById(R.id.et_body);
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         mResponseTv = (TextView) findViewById(R.id.tv_response);
 
         mAPIService = ApiUtils.getAPIService();
+
+        sContext=getApplicationContext();
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("TOKEN_ID",token);
         Log.d("SI OBTIENE TOKEN",token);
         startActivity(intent);
+    }
+
+    public static Context getmainContext(){
+        return sContext;
     }
 
 }

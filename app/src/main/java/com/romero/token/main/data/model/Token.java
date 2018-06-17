@@ -1,5 +1,6 @@
 package com.romero.token.main.data.model;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 
 @Entity
